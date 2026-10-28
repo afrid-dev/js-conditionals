@@ -25,5 +25,39 @@
  * @returns {string} The letter grade or "INVALID"
  */
 export function calculateGrade(score, hasExtraCredit) {
-  // Your code here
+  // Step 1: Validate FIRST
+  if (score < 0 || score > 100)
+  {
+    return "INVALID"
+  }
+
+  // Step 2: Add extra credit BEFORE grading (cap at 100)
+  if (hasExtraCredit === true)
+  {
+    score = score + 5
+    if (score > 100) {
+      score = 100
+    }
+   }
+
+  // Step 3: Now determine the letter grade
+  if (score >= 90)
+  {
+    return "A"
+  }
+  else if (score >= 80)
+  {
+    return "B"
+  }
+  else if (score >= 70) {
+    return "C"
+  }
+  else if (score >= 60)
+  {
+    return "D"
+  }
+  else {
+    return "F"
+  }
+  
 }
